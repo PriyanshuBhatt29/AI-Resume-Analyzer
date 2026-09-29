@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ResumeIQ — semantic resume-to-job matching powered by NLP and transformer embeddings.">
+<title>ResumeIQ — AI Resume Intelligence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<nav class="nav shell"><a class="brand" href="/"><span class="brand-mark">R</span><span>Resume<span class="muted">IQ</span></span></a><span class="nav-pill">AI / NLP ENGINE</span></nav>
+<main class="shell">
+<section class="hero"><div class="eyebrow"><span class="dot"></span> Semantic career intelligence</div>
+<h1>See how your resume<br><em>matches the role.</em></h1>
+<p class="hero-copy">Upload your resume, paste a job description, and get an explainable match analysis powered by transformer embeddings.</p></section>
+<section class="workspace">
+<form id="analyzer-form" class="panel input-panel">
+<div class="panel-head"><div><span class="kicker">01</span><h2>Your resume</h2></div><span id="file-status" class="status">PDF · DOCX · TXT</span></div>
+<label class="dropzone" id="dropzone" for="resume"><input id="resume" name="resume" type="file" accept=".pdf,.docx,.txt" required><div class="upload-icon">↑</div><strong id="file-name">Drop your resume here</strong><span>or click to browse</span></label>
+<div class="divider"><span>AND</span></div>
+<div class="field"><label for="job">Target job description</label><textarea id="job" name="job" placeholder="Paste the role requirements, responsibilities, and preferred skills..." required></textarea></div>
+<button class="primary" id="analyze" type="submit"><span>Analyze fit</span><span>→</span></button>
+<p class="privacy">Your file is processed in memory for analysis and is not stored by this application.</p>
+</form>
+<section id="results" class="panel results-panel hidden">
+<div class="panel-head"><div><span class="kicker">02</span><h2>Match intelligence</h2></div><button id="reset" class="ghost">New analysis</button></div>
+<div class="score-row"><div class="score-ring"><svg viewBox="0 0 120 120"><circle class="ring-bg" cx="60" cy="60" r="50"/><circle id="ring" class="ring" cx="60" cy="60" r="50"/></svg><div><strong id="score">0</strong><small>% match</small></div></div><div class="score-copy"><span class="label">Overall compatibility</span><p id="score-note">Calculated from semantic similarity and overlapping job skills.</p></div></div>
+<div class="metric-grid"><div class="metric"><span>Semantic similarity</span><strong id="semantic">—</strong></div><div class="metric"><span>Skill coverage</span><strong id="skills">—</strong></div></div>
+<div class="result-block"><div class="block-head"><h3>Matched skills</h3><span id="matched-count"></span></div><div id="matched" class="chips"></div></div>
+<div class="result-block"><div class="block-head"><h3>Skill gaps</h3><span class="warning-text" id="missing-count"></span></div><div id="missing" class="chips"></div></div>
+<div class="result-block recommendations"><div class="block-head"><h3>Next moves</h3></div><ul id="recommendations"></ul></div>
+</section>
+</section>
+<section class="trust-grid"><div><span>MODEL</span><strong>all-MiniLM-L6-v2</strong></div><div><span>METHOD</span><strong>Transformer + cosine similarity</strong></div><div><span>OUTPUT</span><strong>Explainable skill gaps</strong></div></section>
+</main>
+<footer class="shell footer"><span>ResumeIQ · Built for practical AI engineering</span><span>FastAPI · Sentence Transformers</span></footer>
+<script src="/app.js"></script>
+</body></html>
